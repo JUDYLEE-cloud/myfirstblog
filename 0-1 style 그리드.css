@@ -1,0 +1,156 @@
+body {
+    background-color: white;
+}
+
+input[id="content"]{
+    display: none;
+}
+input[id="content"] + label {
+    display: block;
+    width: 30px;
+    height: 16px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+}
+input[id="content"] + label span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 30px;
+    background: black;
+    transition: all .35s;
+}
+input[id="content"] + label span:nth-child(1){
+    top: 0;
+}
+input[id="content"] + label span:nth-child(2){
+    top: 50%;
+    transform: translateY(-50%);
+}
+input[id="content"] + label span:nth-child(3){
+    bottom: 0;
+}
+input[id="content"]:checked + label span:nth-child(1){
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+input[id="content"]:checked + label span:nth-child(2){
+    opacity: 0;
+}
+input[id="content"]:checked + label span:nth-child(3){
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+div.sidebar {
+    width: 300px;
+    height: 120%;
+    background: white;
+    border-right: 2px solid black;
+    position: fixed;
+    top: -20px;
+    left: -302px;
+    z-index: 1;
+    transition: all .35s;
+}
+input[id="content"]:checked + label + div {
+    left: 0;
+}
+ol {
+    margin-top: 100px;
+    padding-left: 53px;
+}
+
+.grid-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas: 
+    'header header header header header header header header header header'
+    'menu menu menu main main main main main main main'
+    'menu menu menu main main main main main main main'
+    'menu menu menu main main main main main main main'
+    'menu menu menu main main main main main main main'
+    'menu menu menu footer footer footer footer right right right'
+    'menu menu menu footer footer footer footer right right right'
+    'menu menu menu footer footer footer footer right right right'
+    'menu menu menu footer footer footer footer right right right';
+    gap: 2px;
+    background-color: black;
+    border: 2px solid black;
+}
+
+.grid-container > div {
+    padding: 15px;
+    background-color: white;
+}
+
+.Header {
+    grid-area: header;
+    background-color: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    justify-content: flex-start;
+}
+.title {
+    font-size: 120%;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.Menu {
+    grid-area: menu;
+    background-color: indigo;
+    position: relative;
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Main {
+    grid-area: main;
+    background-color: deeppink;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Right {
+    grid-area: right;
+    background-color: greenyellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Footer {
+    grid-area: footer;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+i {
+    font-size: 30px;
+}
+
+a{
+    text-decoration: none; /* 링크의 밑줄 제거 */  
+    color: inherit; /* 링크의 색상 제거 */
+    display: block;
+}
